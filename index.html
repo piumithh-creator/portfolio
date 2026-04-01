@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
     <!-- ── Primary Meta ── -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -203,7 +202,7 @@
             <div class="hero-avatar-ring">
                 <div class="ring-outer"></div>
                 <div class="hero-photo">
-                     <img src="assets\my.photo1.jpeg" alt="Hirusha Piyumith">
+                     <img src="assets/my.photo1.jpeg" alt="Hirusha Piyumith">
                     <!-- <span class="hero-photo-initials">HP</span> -->
                 </div>
             </div>
@@ -260,7 +259,7 @@
                 <div class="about-photo-wrap">
                     <div class="about-photo-ring" aria-hidden="true"></div>
                     <div class="about-photo">
-                      <img src="assets\my.photo2.jpeg" alt="Hirusha Piyumith">
+                      <img src="assets/my.photo2.jpeg" alt="Hirusha Piyumith">
                      
                     </div>
                 </div>
@@ -466,7 +465,7 @@
             <!-- Project 1 — POS System -->
             <article class="project-card reveal" aria-label="portfolio project">
                 <div class="project-thumb">
-                    <img src="\assets\portfoliopic.jpeg" alt="Portfoliyo" class="project-img">
+                    <img src="assets/portfoliopic.jpeg" alt="Portfoliyo" class="project-img">
                     <span class="project-type-badge">Desktop App</span>
                 </div>
                 <div class="project-body">
@@ -890,246 +889,7 @@
 <!-- ══════════════════════════════════════════
      JAVASCRIPT
 ══════════════════════════════════════════ -->
-<script>
-/* ── 1. LOADER ──────────────────────────────────────────────────── */
-(function initLoader() {
-    const loader  = document.getElementById('loader');
-    const bar     = document.getElementById('loaderBar');
-    const pctText = document.getElementById('loaderPct');
-    let pct = 0;
-
-    const tick = setInterval(() => {
-        pct++;
-        bar.style.width = pct + '%';
-        pctText.textContent = pct + '%';
-        if (pct >= 100) {
-            clearInterval(tick);
-            setTimeout(() => loader.classList.add('fade-out'), 300);
-        }
-    }, 45);
-})();
-
-/* ── 2. SPA NAVIGATION ──────────────────────────────────────────── */
-const PAGE_MAP = {
-    'home':      'home-page',
-    'about':     'about-page',
-    'tech':      'tech-page',
-    'projects':  'projects-page',
-    'exercises': 'exercises-page',
-    'gallery':   'gallery-page',
-    'contact':   'contact-page',
-};
-
-const allPages   = document.querySelectorAll('.page-section');
-const allNavItems= document.querySelectorAll('[data-page]');
-const header     = document.getElementById('site-header');
-const hamburger  = document.getElementById('hamburger');
-const mobileNav  = document.getElementById('mobileNav');
-
-function showPage(pageKey) {
-    const targetId = PAGE_MAP[pageKey];
-    if (!targetId) return;
-
-    allPages.forEach(p => p.classList.remove('is-active', 'page-enter'));
-    const target = document.getElementById(targetId);
-    if (target) {
-        target.classList.add('is-active', 'page-enter');
-        setTimeout(() => target.classList.remove('page-enter'), 500);
-    }
-
-    allNavItems.forEach(el => {
-        el.classList.toggle('is-active', el.dataset.page === pageKey);
-    });
-
-    // Close mobile nav
-    mobileNav.classList.remove('is-open');
-    hamburger.classList.remove('is-open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    mobileNav.setAttribute('aria-hidden', 'true');
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // Re-trigger reveal animations for new page
-    requestAnimationFrame(() => checkRevealElements());
-}
-
-// Bind all [data-page] links
-allNavItems.forEach(el => {
-    el.addEventListener('click', e => {
-        e.preventDefault();
-        const pg = el.dataset.page;
-        if (pg) showPage(pg);
-    });
-});
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 10);
-}, { passive: true });
-
-// Hamburger
-hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('is-open');
-    mobileNav.classList.toggle('is-open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-    mobileNav.setAttribute('aria-hidden', !isOpen);
-});
-
-/* ── 3. TYPEWRITER EFFECT ───────────────────────────────────────── */
-(function initTypewriter() {
-    const el    = document.getElementById('roleText');
-    const roles = [
-        'beautiful interfaces',
-        'performant web apps',
-        'clean, readable code',
-        'user-friendly designs',
-    ];
-    let roleIdx = 0, charIdx = 0, isDeleting = false;
-
-    function type() {
-        const currentRole = roles[roleIdx];
-        if (isDeleting) {
-            el.textContent = currentRole.substring(0, charIdx - 1);
-            charIdx--;
-        } else {
-            el.textContent = currentRole.substring(0, charIdx + 1);
-            charIdx++;
-        }
-
-        let delay = isDeleting ? 60 : 90;
-
-        if (!isDeleting && charIdx === currentRole.length) {
-            delay = 1800; // pause at end
-            isDeleting = true;
-        } else if (isDeleting && charIdx === 0) {
-            isDeleting = false;
-            roleIdx = (roleIdx + 1) % roles.length;
-            delay = 400;
-        }
-
-        setTimeout(type, delay);
-    }
-    setTimeout(type, 1200);
-})();
-
-/* ── 4. INTERSECTION OBSERVER — reveal animations ───────────────── */
-function checkRevealElements() {
-    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // once only
-            }
-        });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach(el => observer.observe(el));
-}
-checkRevealElements();
-
-/* ── 5. CONTACT FORM ────────────────────────────────────────────── */
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const success = document.getElementById('formSuccess');
-    success.style.display = 'block';
-    this.reset();
-    setTimeout(() => { success.style.display = 'none'; }, 5000);
-});
-
-/* ── 6. CURSOR TRAIL ────────────────────────────────────────────── */
-(function initCursor() {
-    // Skip on touch / mobile devices
-    if (window.matchMedia('(hover: none)').matches) return;
-
-    const canvas = document.getElementById('cursorCanvas');
-    const ctx    = canvas.getContext('2d');
-    let trail    = [];
-
-    function resize() {
-        canvas.width  = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    window.addEventListener('mousemove', e => {
-        trail.push({ x: e.clientX, y: e.clientY, life: 1 });
-        if (trail.length > 32) trail.shift();
-    }, { passive: true });
-
-    let rafId;
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        trail.forEach((p, i) => {
-            if (p.life <= 0) return;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 2.5 * p.life, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(126, 4, 227, ${p.life * 0.45})`;
-            ctx.fill();
-            p.life -= 0.05;
-        });
-        trail = trail.filter(p => p.life > 0);
-        rafId = requestAnimationFrame(draw);
-    }
-    draw();
-})();
-
-/* ── 7. TECH BAR ANIMATION ──────────────────────────────────────── */
-// Bars animate to width when the tech section becomes visible
-const techObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.tech-bar').forEach(bar => {
-                const target = bar.style.width;
-                bar.style.width = '0%';
-                requestAnimationFrame(() => {
-                    bar.style.width = target;
-                });
-            });
-            techObs.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.2 });
-
-const techPage = document.getElementById('tech-page');
-if (techPage) techObs.observe(techPage);
-</script>
+<script defer src="script.js"></script>
 
 </body>
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <img class="image-gradient" src="gradient.png" alt="gradient">
-    <div class="layer-blur"></div> 
-
-    <div class="container">
-        <header>
-            <h1 class="logo">   HIRUSHA</h1>
-
-            <nav>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Education</a>
-                <a href="#">Services</a>
-                <a href="#">Contact</a>
-            </nav>
-           
-        </header>
-
-        <div class="content">
-            <di class="tag-box">
-                 <div class="tag">INTRUCING &wedbar;</div>
-            </div>
-
-            <h1></H1>
-        </div>
-
-    </div>
-</body> 
->>>>>>> b5ed33c28ebbc99cd47138e29b7e5dd4bf6d1b62
 </html>
