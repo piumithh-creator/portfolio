@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* =============================================================
    HIRUSHA PIYUMITH — PORTFOLIO v2.0 (Production)
    Architecture: Design tokens → Base → Layout → Components → Pages → Responsive
@@ -67,8 +66,10 @@
     --trans:       var(--dur-base) var(--ease-out);
 
     /* Layout */
+    /* Core layout tokens and spacing helpers for responsive rhythm */
     --max-width:   1320px;
     --nav-height:  68px;
+    --section-gap: 5rem;
 
     /* Shadows */
     --shadow-sm:   0 2px 8px rgba(0,0,0,0.3);
@@ -1676,7 +1677,6 @@ strong { color: var(--white); font-weight: 700; }
     .projects-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
 }
-=======
 *{
     margin: 0;
     padding: 0;
@@ -1758,4 +1758,3 @@ nav a:hover{
 .btn-signing:hover{
     background-color: white;
 } */
->>>>>>> b5ed33c28ebbc99cd47138e29b7e5dd4bf6d1b62
