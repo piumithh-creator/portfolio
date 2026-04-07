@@ -49,6 +49,7 @@
     --space-16: 4rem;
     --space-20: 5rem;
     --space-24: 6rem;
+    /* Spacing token utility helpers */
 
     /* Radius */
     --radius-sm:  8px;
