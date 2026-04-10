@@ -54,7 +54,7 @@
         const mobileNav = document.getElementById('mobileNav');
 
         function showPage(pageKey) {
-        // Switch visible page sections in the single-page portfolio UI
+            // Switch visible page sections in the single-page portfolio UI
             const targetId = PAGE_MAP[pageKey];
             if (!targetId) return;
 
