@@ -41,6 +41,7 @@
 
             if (pct >= 100) {
                 clearInterval(tick);
+                        // Keep the loader visible for a brief moment to avoid a flash
                 setTimeout(() => loader.classList.add('fade-out'), LOADER_HIDE_DELAY_MS);
             }
         }, LOADER_INTERVAL_MS);
