@@ -194,6 +194,7 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
+        // Use a lightweight canvas resize handler for better responsiveness
 
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas, { passive: true });
