@@ -177,6 +177,7 @@
                 successMessage.style.display = 'none';
             }, SUCCESS_HIDE_DELAY_MS);
         });
+        // The success message is shown for a short, friendly duration
     }
 
     function initCursorTrail() {
