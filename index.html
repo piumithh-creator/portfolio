@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ── Primary Meta ── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hirusha Piyumith — Frontend Developer & UI Designer based in Sri Lanka. Building modern, performant web experiences with HTML, CSS, JavaScript & Java.">
+    <meta name="keywords" content="Hirusha Piyumith, frontend developer, UI designer, Sri Lanka, HTML, CSS, JavaScript, Java, portfolio">
+    <meta name="author" content="Hirusha Piyumith">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#080810">
+
+    <!-- ── Open Graph / Social ── -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hirusha Piyumith — Frontend Developer & UI Designer">
+    <meta property="og:description" content="Building modern, performant web experiences from Sri Lanka.">
+    <meta property="og:site_name" content="Hirusha Piyumith Portfolio">
+
+    <!-- ── Twitter Card ── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hirusha Piyumith — Frontend Developer">
+    <meta name="twitter:description" content="Crafting modern web experiences with clean code and thoughtful design.">
+
+    <title>Hirusha Piyumith — Frontend Developer & UI Designer</title>
+
+    <!-- ── Preconnect for performance ── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- ── Fonts — only what we use ── -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ── Structured Data (JSON-LD) ── -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hirusha Piyumith",
+        "jobTitle": "Frontend Developer & UI Designer",
+        "url": "https://hirusha.dev",
+        "sameAs": [
+            "https://github.com/hirusha-piyumith",
+            "https://linkedin.com/in/hirusha-piyumith"
+        ],
+        "address": { "@type": "PostalAddress", "addressCountry": "LK" }
+    }
+    </script>
+</head>
+<body>
+
+<!-- ── AMBIENT BACKGROUND (one element, CSS-driven) ── -->
+<div class="bg-canvas" aria-hidden="true"></div>
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     LOADER
+══════════════════════════════════════════ -->
+<div id="loader" role="status" aria-label="Loading portfolio">
+    <div class="loader-logo">H<span>.</span>P<span>.</span></div>
+    <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+    </div>
+    <p class="loader-pct" id="loaderPct" aria-live="polite">0%</p>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HEADER / NAVIGATION
+══════════════════════════════════════════ -->
+<header id="site-header" role="banner">
+    <div class="header-inner">
+
+        <!-- Logo -->
+        <a href="#" class="site-logo" data-page="home" aria-label="Go to homepage">
+            H<span>.</span>P<span>.</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="#" class="nav-item is-active" data-page="home">Home</a>
+            <a href="#" class="nav-item" data-page="about">About</a>
+            <a href="#" class="nav-item" data-page="tech">Tech Stack</a>
+            <a href="#" class="nav-item" data-page="projects">Projects</a>
+            <a href="#" class="nav-item" data-page="exercises">Exercises</a>
+            <a href="#" class="nav-item" data-page="gallery">Gallery</a>
+            <a href="#" class="nav-item" data-page="contact">Contact</a>
+        </nav>
+
+        <!-- Availability badge -->
+        <div class="avail-badge" aria-label="Currently available for freelance work">
+            <span class="avail-dot" aria-hidden="true"></span>
+            Available for freelance
+        </div>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav-drawer" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#" class="mobile-nav-item" data-page="home">Home</a>
+    <a href="#" class="mobile-nav-item" data-page="about">About</a>
+    <a href="#" class="mobile-nav-item" data-page="tech">Tech Stack</a>
+    <a href="#" class="mobile-nav-item" data-page="projects">Projects</a>
+    <a href="#" class="mobile-nav-item" data-page="exercises">Exercises</a>
+    <a href="#" class="mobile-nav-item" data-page="gallery">Gallery</a>
+    <a href="#" class="mobile-nav-item" data-page="contact">Contact</a>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════════ -->
+<main>
+<section id="home-page" class="page-section is-active" aria-label="Home" role="main">
+    <div class="hero-wrap">
+
+        <!-- ── Left: Content ── -->
+        <div class="hero-content">
+
+            <!-- Status / open to work -->
+            <div class="hero-status" role="note" aria-label="Currently available for work">
+                Available for Freelance &amp; Internship
+            </div>
+
+            <!-- Headline -->
+            <h1 class="hero-headline">
+                Hi, I'm<br>
+                <em>Hirusha Piyumith</em>
+            </h1>
+
+            <!-- Typewriter role -->
+            <p class="hero-role" aria-label="Role: Frontend Developer & UI Designer">
+                <span class="role-prefix">I build</span>
+                <span class="role-text" id="roleText">beautiful interfaces</span>
+            </p>
+
+            <!-- Value proposition — clear, specific -->
+            <p class="hero-value-prop">
+                Frontend Developer & UI Designer crafting modern, responsive web experiences
+                using clean code and thoughtful design. Currently studying Software Engineering
+                at IJSE, Sri Lanka.
+            </p>
+
+            <!-- Primary CTAs -->
+            <div class="hero-cta-group">
+                <a href="#" class="btn btn-primary" data-page="projects" aria-label="View my projects">
+                    View My Work →
+                </a>
+                <a href="#" class="btn btn-ghost" data-page="contact" aria-label="Contact me">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Social icons -->
+            <div class="hero-socials" role="list" aria-label="Social media links">
+                <span class="hero-socials-label">Find me on</span>
+                <a href="https://github.com/hirusha-piyumith" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub" role="listitem">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/hirusha-piyumith" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn" role="listitem">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="mailto:piumithh@gmail.com" class="btn-icon" aria-label="Send email" title="Email" role="listitem">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero-stats" aria-label="Key statistics">
+                <div class="hero-stat">
+                    <span class="hero-stat-num">3+</span>
+                    <span class="hero-stat-label">Projects</span>
+                </div>
+                <div class="stat-divider" aria-hidden="true"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">2+</span>
+                    <span class="hero-stat-label">Years Study</span>
+                </div>
+                <div class="stat-divider" aria-hidden="true"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">100%</span>
+                    <span class="hero-stat-label">Passion</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Right: Avatar ── -->
+        <div class="hero-visual" aria-hidden="true">
+            <div class="hero-avatar-ring">
+                <div class="ring-outer"></div>
+                <div class="hero-photo">
+                     <img src="assets\my.photo1.jpeg" alt="Hirusha Piyumith">
+                    <!-- <span class="hero-photo-initials">HP</span> -->
+                </div>
+            </div>
+
+            <!-- Floating tech badges -->
+            <div class="floating-badge badge-a">⚡ JavaScript</div>
+            <div class="floating-badge badge-b">☕ Java</div>
+            <div class="floating-badge badge-c">🎨 CSS3</div>
+        </div>
+
+        <!-- Skill strip marquee -->
+        <div class="hero-marquee" aria-label="Technologies I work with" role="marquee">
+            <div class="marquee-track" aria-hidden="true">
+                <!-- Group 1 -->
+                <span class="marquee-item"><span class="dot"></span><strong>HTML5</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>CSS3</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>JavaScript</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>Java</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>MySQL</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>JavaFX</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>Scene Builder</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>Figma</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>GitHub</strong></span>
+                <!-- Group 2 (duplicate for loop) -->
+                <span class="marquee-item"><span class="dot"></span><strong>HTML5</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>CSS3</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>JavaScript</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>Java</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>MySQL</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>JavaFX</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>Scene Builder</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>Figma</strong></span>
+                <span class="marquee-item"><span class="dot"></span><strong>GitHub</strong></span>
+            </div>
+        </div>
+
+    </div><!-- /hero-wrap -->
+</section>
+
+<!-- ══════════════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════════════ -->
+<section id="about-page" class="page-section" aria-label="About me">
+    <div class="section-container">
+        <header class="section-header reveal">
+            <span class="section-eyebrow">/ About Me</span>
+            <h2 class="section-title">The Person<br>Behind the Code</h2>
+        </header>
+
+        <div class="about-grid">
+
+            <!-- Left: Identity card -->
+            <aside class="about-identity-card reveal-left" aria-label="Profile overview">
+                <div class="about-photo-wrap">
+                    <div class="about-photo-ring" aria-hidden="true"></div>
+                    <div class="about-photo">
+                      <img src="assets\my.photo2.jpeg" alt="Hirusha Piyumith">
+                     
+                    </div>
+                </div>
+
+                <div class="tag-group">
+                    <span class="tag">🇱🇰 Sri Lanka</span>
+                    <span class="tag">💻 Frontend Dev</span>
+                    <span class="tag">🎨 UI Designer</span>
+                </div>
+
+                <a href="#" class="edu-cta nav-item" data-page="about" aria-label="View education details">
+                    🎓 View Education Timeline
+                </a>
+
+                <div class="stats-grid" aria-label="Key statistics">
+                    <div class="stat-box">
+                        <div class="stat-box-icon" aria-hidden="true">💼</div>
+                        <span class="stat-box-num">3+</span>
+                        <span class="stat-box-label">Projects</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-icon" aria-hidden="true">📚</div>
+                        <span class="stat-box-num">2+</span>
+                        <span class="stat-box-label">Yrs Study</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-icon" aria-hidden="true">🛠️</div>
+                        <span class="stat-box-num">8+</span>
+                        <span class="stat-box-label">Technologies</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-icon" aria-hidden="true">🌏</div>
+                        <span class="stat-box-num" style="font-size:1.4rem;">🇱🇰</span>
+                        <span class="stat-box-label">Based In</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right: Bio content -->
+            <div class="about-bio reveal-right">
+                <div class="about-chips tag-group" style="justify-content:flex-start;margin-bottom:1.5rem;">
+                    <span class="tag">🇱🇰 Sri Lanka</span>
+                    <span class="tag">💻 Frontend Dev</span>
+                    <span class="tag">🎨 UI Designer</span>
+                </div>
+
+                <p>I'm <strong>Hirusha Piyumith</strong>, a passionate Frontend Developer based in Sri Lanka who believes great design is invisible — it just <em style="color:#9b30ff;">works</em>.</p>
+                <p>I specialise in building sleek, performant web interfaces using HTML, CSS, and JavaScript. I love turning complex problems into elegant, user-friendly solutions that deliver real value to users.</p>
+                <p>When I'm not coding, I'm exploring new design trends, contributing to open-source projects, or sketching UI concepts in Figma. Currently pursuing Software Engineering at IJSE.</p>
+
+                <div class="highlights-row reveal stagger">
+                    <div class="highlight-card" style="--i:0;">
+                        <span class="highlight-icon">🎓</span>
+                        <div>
+                            <strong>Education</strong><br>
+                            <small style="color:var(--text-muted);">Software Engineering — IJSE</small>
+                        </div>
+                    </div>
+                    <div class="highlight-card" style="--i:1;">
+                        <span class="highlight-icon">🌏</span>
+                        <div>
+                            <strong>Available</strong><br>
+                            <small style="color:var(--text-muted);">Remote / Freelance</small>
+                        </div>
+                    </div>
+                    <div class="highlight-card" style="--i:2;">
+                        <span class="highlight-icon">⚡</span>
+                        <div>
+                            <strong>Focus</strong><br>
+                            <small style="color:var(--text-muted);">Performance &amp; UX</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education timeline -->
+                <div class="timeline-section reveal">
+                    <h3 class="timeline-label">Education</h3>
+                    <div class="timeline">
+                        <div class="tl-row">
+                            <div class="tl-dot" aria-hidden="true"></div>
+                            <article class="tl-card">
+                                <time class="tl-year" datetime="2022">2022 – Present</time>
+                                <h4 class="tl-title">Software Engineering</h4>
+                                <p class="tl-place">IJSE — Institute of Software Engineering, Sri Lanka</p>
+                            </article>
+                        </div>
+                        <div class="tl-row">
+                            <div class="tl-dot" aria-hidden="true"></div>
+                            <article class="tl-card">
+                                <time class="tl-year" datetime="2020">2020 – 2022</time>
+                                <h4 class="tl-title">Advanced Level (A/L)</h4>
+                                <p class="tl-place">Urapola National School, Sri Lanka</p>
+                            </article>
+                        </div>
+                        <div class="tl-row">
+                            <div class="tl-dot" aria-hidden="true"></div>
+                            <article class="tl-card">
+                                <time class="tl-year" datetime="2018">2018 – 2020</time>
+                                <h4 class="tl-title">Ordinary Level (O/L)</h4>
+                                <p class="tl-place">Urapola National School, Sri Lanka</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PAGE: TECH STACK
+══════════════════════════════════════════ -->
+<section id="tech-page" class="page-section" aria-label="Technologies">
+    <div class="section-container">
+        <header class="section-header reveal">
+            <span class="section-eyebrow">/ Tech Stack</span>
+            <h2 class="section-title">Technologies<br>I Work With</h2>
+        </header>
+
+        <div class="tech-grid stagger" role="list" aria-label="Technology skills">
+            <!-- Each card: icon, name, proficiency bar -->
+            <div class="tech-card reveal" style="--i:0;" role="listitem">
+                <div class="tech-icon" aria-hidden="true">🌐</div>
+                <span class="tech-name">HTML5</span>
+                <span class="tech-level">Expert</span>
+                <div class="tech-bar-wrap" aria-label="Proficiency: 95%">
+                    <div class="tech-bar" style="width:95%;" aria-valuenow="95"></div>
+                </div>
+            </div>
+            <div class="tech-card reveal" style="--i:1;" role="listitem">
+                <div class="tech-icon" aria-hidden="true">🎨</div>
+                <span class="tech-name">CSS3</span>
+                <span class="tech-level">Expert</span>
+                <div class="tech-bar-wrap" aria-label="Proficiency: 90%">
+                    <div class="tech-bar" style="width:90%;"></div>
+                </div>
+            </div>
+            <div class="tech-card reveal" style="--i:2;" role="listitem">
+                <div class="tech-icon" aria-hidden="true">⚡</div>
+                <span class="tech-name">JavaScript</span>
+                <span class="tech-level">Proficient</span>
+                <div class="tech-bar-wrap" aria-label="Proficiency: 78%">
+                    <div class="tech-bar" style="width:78%;"></div>
+                </div>
+            </div>
+            <div class="tech-card reveal" style="--i:3;" role="listitem">
+                <div class="tech-icon" aria-hidden="true">☕</div>
+                <span class="tech-name">Java</span>
+                <span class="tech-level">Proficient</span>
+                <div class="tech-bar-wrap" aria-label="Proficiency: 75%">
+                    <div class="tech-bar" style="width:75%;"></div>
+                </div>
+            </div>
+            <div class="tech-card reveal" style="--i:4;" role="listitem">
+                <div class="tech-icon" aria-hidden="true">🗄️</div>
+                <span class="tech-name">MySQL</span>
+                <span class="tech-level">Intermediate</span>
+                <div class="tech-bar-wrap" aria-label="Proficiency: 68%">
+                    <div class="tech-bar" style="width:68%;"></div>
+                </div>
+            </div>
+            <div class="tech-card reveal" style="--i:5;" role="listitem">
+                <div class="tech-icon" aria-hidden="true">🖼️</div>
+                <span class="tech-name">JavaFX</span>
+                <span class="tech-level">Proficient</span>
+                <div class="tech-bar-wrap" aria-label="Proficiency: 72%">
+                    <div class="tech-bar" style="width:72%;"></div>
+                </div>
+            </div>
+            <div class="tech-card reveal" style="--i:6;" role="listitem">
+                <div class="tech-icon" aria-hidden="true">🎭</div>
+                <span class="tech-name">Figma</span>
+                <span class="tech-level">Intermediate</span>
+                <div class="tech-bar-wrap" aria-label="Proficiency: 65%">
+                    <div class="tech-bar" style="width:65%;"></div>
+                </div>
+            </div>
+            <div class="tech-card reveal" style="--i:7;" role="listitem">
+                <div class="tech-icon" aria-hidden="true">🐙</div>
+                <span class="tech-name">Git / GitHub</span>
+                <span class="tech-level">Proficient</span>
+                <div class="tech-bar-wrap" aria-label="Proficiency: 74%">
+                    <div class="tech-bar" style="width:74%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PAGE: PROJECTS
+══════════════════════════════════════════ -->
+<section id="projects-page" class="page-section" aria-label="Projects">
+    <div class="section-container">
+        <header class="section-header reveal">
+            <span class="section-eyebrow">/ Projects</span>
+            <h2 class="section-title">Things I've Built</h2>
+        </header>
+
+        <div class="projects-grid">
+
+            <!-- Project 1 — POS System -->
+            <article class="project-card reveal" aria-label="portfolio project">
+                <div class="project-thumb">
+                    <img src="\assets\portfoliopic.jpeg" alt="Portfoliyo" class="project-img">
+                    <span class="project-type-badge">Desktop App</span>
+                </div>
+                <div class="project-body">
+                    <h3 class="portfolio project">portfolio </h3>
+
+                    <div class="case-section">
+                        <span class="case-label">Problem</span>
+                        <p class="case-text">Small retail shops lacked an affordable, easy-to-use point-of-sale tool for tracking sales and inventory.</p>
+                    </div>
+                    <div class="case-section">
+                        <span class="case-label">Solution</span>
+                        <p class="case-text">Built a full-featured desktop POS with inventory management, daily sales reports, and customer tracking using JavaFX.</p>
+                    </div>
+                    <div class="case-section">
+                        <span class="case-label">Result</span>
+                        <p class="case-text">Streamlined billing process — reduced manual errors and provided real-time inventory visibility.</p>
+                    </div>
+
+                    <div class="pill-row" aria-label="Technologies used">
+                        <span class="pill">Java</span>
+                        <span class="pill">JavaFX</span>
+                        <span class="pill">MySQL</span>
+                        <span class="pill">Scene Builder</span>
+                    </div>
+
+                    <a href="https://github.com/piumithh-creator/portfolio" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View POS System on GitHub">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        View Source on GitHub
+                    </a>
+                </div>
+            </article>
+
+            <!-- Project 2 — Car Rental -->
+            <article class="project-card reveal" aria-label="Car Rental System project" style="transition-delay:80ms;">
+                <div class="project-thumb">
+                    <div class="project-thumb-placeholder" aria-hidden="true">🚗</div>
+                    <span class="project-type-badge">Desktop App</span>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-name">Car Rental System</h3>
+
+                    <div class="case-section">
+                        <span class="case-label">Problem</span>
+                        <p class="case-text">Managing bookings, vehicle availability, and customer records manually was error-prone and time-consuming.</p>
+                    </div>
+                    <div class="case-section">
+                        <span class="case-label">Solution</span>
+                        <p class="case-text">Developed a desktop management system with booking calendar, vehicle tracking, and customer database.</p>
+                    </div>
+                    <div class="case-section">
+                        <span class="case-label">Result</span>
+                        <p class="case-text">Eliminated double-bookings and reduced admin overhead significantly with a clean, intuitive UI.</p>
+                    </div>
+
+                    <div class="pill-row" aria-label="Technologies used">
+                        <span class="pill">Java</span>
+                        <span class="pill">JavaFX</span>
+                        <span class="pill">MySQL</span>
+                    </div>
+
+                    <a href="https://github.com/hirusha-piyumith" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Car Rental System on GitHub">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        View Source on GitHub
+                    </a>
+                </div>
+            </article>
+
+            <!-- Project 3 — Portfolio -->
+            <article class="project-card reveal" aria-label="Portfolio Website project" style="transition-delay:160ms;">
+                <div class="project-thumb">
+                    <div class="project-thumb-placeholder" aria-hidden="true">🎨</div>
+                    <span class="project-type-badge">Web</span>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-name">Portfolio Website</h3>
+
+                    <div class="case-section">
+                        <span class="case-label">Problem</span>
+                        <p class="case-text">Needed a professional online presence that demonstrated frontend skills and stood out from generic templates.</p>
+                    </div>
+                    <div class="case-section">
+                        <span class="case-label">Solution</span>
+                        <p class="case-text">Designed and built this animated single-page portfolio from scratch with glassmorphism UI, custom animations, and accessibility in mind.</p>
+                    </div>
+                    <div class="case-section">
+                        <span class="case-label">Result</span>
+                        <p class="case-text">A distinctive, client-ready portfolio that showcases both design sensibility and frontend engineering depth.</p>
+                    </div>
+
+                    <div class="pill-row" aria-label="Technologies used">
+                        <span class="pill">HTML5</span>
+                        <span class="pill">CSS3</span>
+                        <span class="pill">JavaScript</span>
+                    </div>
+
+                    <a href="https://github.com/hirusha-piyumith" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Portfolio on GitHub">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        View Source on GitHub
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PAGE: EXERCISES
+══════════════════════════════════════════ -->
+<section id="exercises-page" class="page-section" aria-label="Learning exercises">
+    <div class="section-container">
+        <header class="section-header reveal">
+            <span class="section-eyebrow">/ Exercises</span>
+            <h2 class="section-title">Practice &amp;<br>Learning Work</h2>
+        </header>
+
+        <div class="exercises-grid">
+
+            <article class="exercise-card reveal" style="--i:0;">
+                <div class="ex-bg-layer" style="background:linear-gradient(135deg,#1a0033,#004D5D,#470981);" aria-hidden="true"></div>
+                <div class="ex-title-strip" aria-hidden="true">
+                    <div class="ex-strip-num">EX 01</div>
+                    <div class="ex-strip-title">Landing Page</div>
+                </div>
+                <div class="ex-overlay">
+                    <div class="ex-num">EXERCISE 01</div>
+                    <h3 class="ex-title">Landing Page</h3>
+                    <p class="ex-desc">A responsive modern landing page built with HTML &amp; CSS fundamentals.</p>
+                    <div class="ex-links">
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">🔗 Live Demo</a>
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">⬡ GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exercise-card reveal" style="--i:1;">
+                <div class="ex-bg-layer" style="background:linear-gradient(135deg,#004D5D,#1a0033,#7e04e3);" aria-hidden="true"></div>
+                <div class="ex-title-strip" aria-hidden="true">
+                    <div class="ex-strip-num">EX 02</div>
+                    <div class="ex-strip-title">CSS Animations</div>
+                </div>
+                <div class="ex-overlay">
+                    <div class="ex-num">EXERCISE 02</div>
+                    <h3 class="ex-title">CSS Animations</h3>
+                    <p class="ex-desc">Exploring CSS keyframe animations, transitions and transform effects.</p>
+                    <div class="ex-links">
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">🔗 Live Demo</a>
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">⬡ GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exercise-card reveal" style="--i:2;">
+                <div class="ex-bg-layer" style="background:linear-gradient(135deg,#7e04e3,#004D5D,#0d0d1a);" aria-hidden="true"></div>
+                <div class="ex-title-strip" aria-hidden="true">
+                    <div class="ex-strip-num">EX 03</div>
+                    <div class="ex-strip-title">JavaScript DOM</div>
+                </div>
+                <div class="ex-overlay">
+                    <div class="ex-num">EXERCISE 03</div>
+                    <h3 class="ex-title">JavaScript DOM</h3>
+                    <p class="ex-desc">Interactive DOM manipulation with events, forms and dynamic content.</p>
+                    <div class="ex-links">
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">🔗 Live Demo</a>
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">⬡ GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exercise-card reveal" style="--i:3;">
+                <div class="ex-bg-layer" style="background:linear-gradient(135deg,#0d0d1a,#470981,#004D5D);" aria-hidden="true"></div>
+                <div class="ex-title-strip" aria-hidden="true">
+                    <div class="ex-strip-num">EX 04</div>
+                    <div class="ex-strip-title">Flexbox Layouts</div>
+                </div>
+                <div class="ex-overlay">
+                    <div class="ex-num">EXERCISE 04</div>
+                    <h3 class="ex-title">Flexbox Layouts</h3>
+                    <p class="ex-desc">Mastering CSS Flexbox for modern responsive layouts and alignment patterns.</p>
+                    <div class="ex-links">
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">🔗 Live Demo</a>
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">⬡ GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exercise-card reveal" style="--i:4;">
+                <div class="ex-bg-layer" style="background:linear-gradient(135deg,#470981,#004D5D,#1a0033);" aria-hidden="true"></div>
+                <div class="ex-title-strip" aria-hidden="true">
+                    <div class="ex-strip-num">EX 05</div>
+                    <div class="ex-strip-title">CSS Grid System</div>
+                </div>
+                <div class="ex-overlay">
+                    <div class="ex-num">EXERCISE 05</div>
+                    <h3 class="ex-title">CSS Grid System</h3>
+                    <p class="ex-desc">CSS Grid deep dive — building complex multi-column page layouts.</p>
+                    <div class="ex-links">
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">🔗 Live Demo</a>
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">⬡ GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exercise-card reveal" style="--i:5;">
+                <div class="ex-bg-layer" style="background:linear-gradient(135deg,#1a0033,#7e04e3,#004D5D);" aria-hidden="true"></div>
+                <div class="ex-title-strip" aria-hidden="true">
+                    <div class="ex-strip-num">EX 06</div>
+                    <div class="ex-strip-title">Java OOP</div>
+                </div>
+                <div class="ex-overlay">
+                    <div class="ex-num">EXERCISE 06</div>
+                    <h3 class="ex-title">Java OOP</h3>
+                    <p class="ex-desc">Object-oriented programming concepts — classes, inheritance and encapsulation in Java.</p>
+                    <div class="ex-links">
+                        <a href="#" class="ex-btn" target="_blank" rel="noopener noreferrer">⬡ GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PAGE: GALLERY
+══════════════════════════════════════════ -->
+<section id="gallery-page" class="page-section" aria-label="Work gallery">
+    <div class="section-container">
+        <header class="section-header reveal">
+            <span class="section-eyebrow">/ Gallery</span>
+            <h2 class="section-title">Work Showcase</h2>
+        </header>
+
+        <div class="gallery-grid" role="list" aria-label="Gallery of work">
+            <div class="gallery-item reveal" role="listitem">
+                <div class="gallery-item-inner" aria-label="POS System screenshot">🛒</div>
+            </div>
+            <div class="gallery-item reveal" role="listitem">
+                <div class="gallery-item-inner" aria-label="Car Rental screenshot">🚗</div>
+            </div>
+            <div class="gallery-item reveal" role="listitem">
+                <div class="gallery-item-inner" aria-label="Portfolio screenshot">🎨</div>
+            </div>
+            <div class="gallery-item reveal" role="listitem">
+                <div class="gallery-item-inner" aria-label="Web exercise">🌐</div>
+            </div>
+            <div class="gallery-item reveal" role="listitem">
+                <div class="gallery-item-inner" aria-label="Java project">☕</div>
+            </div>
+            <div class="gallery-item reveal" role="listitem">
+                <div class="gallery-item-inner" aria-label="UI design">🎭</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════════ -->
+<section id="contact-page" class="page-section" aria-label="Contact">
+    <div class="section-container">
+        <header class="section-header reveal">
+            <span class="section-eyebrow">/ Contact</span>
+            <h2 class="section-title">Let's Work<br>Together</h2>
+        </header>
+
+        <!-- Trust signals -->
+        <div class="trust-strip reveal" aria-label="Key stats" role="list">
+            <div class="trust-item" role="listitem">
+                <span class="trust-num">3+</span>
+                <span class="trust-label">Projects Delivered</span>
+            </div>
+            <div class="trust-item" role="listitem">
+                <span class="trust-num">100%</span>
+                <span class="trust-label">Passion</span>
+            </div>
+            <div class="trust-item" role="listitem">
+                <span class="trust-num">&lt;24h</span>
+                <span class="trust-label">Response Time</span>
+            </div>
+        </div>
+
+        <div class="contact-wrapper">
+
+            <!-- Left: info -->
+            <div class="reveal-left">
+                <p class="contact-intro">
+                    Have a project in mind, a question, or just want to say hi?
+                    My inbox is always open — I respond within 24 hours.
+                </p>
+
+                <nav class="contact-links" aria-label="Contact methods">
+                    <a href="mailto:piumithh@gmail.com" class="contact-link-card" aria-label="Email Hirusha">
+                        <div class="contact-link-icon" aria-hidden="true">📧</div>
+                        <div>
+                            <span class="contact-link-title">Email</span>
+                            <span class="contact-link-value">piumithh@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/in/hirusha-piyumith" target="_blank" rel="noopener noreferrer" class="contact-link-card" aria-label="Hirusha on LinkedIn">
+                        <div class="contact-link-icon" aria-hidden="true">💼</div>
+                        <div>
+                            <span class="contact-link-title">LinkedIn</span>
+                            <span class="contact-link-value">linkedin.com/in/hirusha-piyumith</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/hirusha-piyumith" target="_blank" rel="noopener noreferrer" class="contact-link-card" aria-label="Hirusha on GitHub">
+                        <div class="contact-link-icon" aria-hidden="true">🐙</div>
+                        <div>
+                            <span class="contact-link-title">GitHub</span>
+                            <span class="contact-link-value">github.com/hirusha-piyumith</span>
+                        </div>
+                    </a>
+                    <div class="contact-link-card" aria-label="Location">
+                        <div class="contact-link-icon" aria-hidden="true">📍</div>
+                        <div>
+                            <span class="contact-link-title">Location</span>
+                            <span class="contact-link-value">Sri Lanka 🇱🇰 — Available Remotely</span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Right: form -->
+            <div class="reveal-right">
+                <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name <span aria-hidden="true">*</span></label>
+                            <input class="form-input" type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address <span aria-hidden="true">*</span></label>
+                            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Subject</label>
+                        <input class="form-input" type="text" id="subject" name="subject" placeholder="Project Inquiry / Collaboration / Other..." autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
+                        <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about your project or how I can help..." rows="5" required aria-required="true"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            Send Message ✉️
+                        </button>
+                        <button type="reset" class="btn btn-ghost">
+                            Clear
+                        </button>
+                    </div>
+                    <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
+                        ✅ Message sent! I'll get back to you within 24 hours.
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+        <div>
+            <p class="footer-brand-name">H<span>.</span>P<span>.</span></p>
+            <p class="footer-tagline">
+                Frontend Developer &amp; UI Designer<br>
+                crafting modern web experiences from<br>
+                Sri Lanka 🇱🇰
+            </p>
+            <div style="display:flex;gap:0.75rem;margin-top:1rem;">
+                <a href="https://github.com/hirusha-piyumith" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/hirusha-piyumith" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="mailto:piumithh@gmail.com" class="btn-icon" aria-label="Email" title="Email">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+            </div>
+        </div>
+        <div>
+            <span class="footer-col-title">Navigation</span>
+            <nav class="footer-links-list" aria-label="Footer navigation">
+                <a href="#" class="footer-link nav-item" data-page="home">Home</a>
+                <a href="#" class="footer-link nav-item" data-page="about">About</a>
+                <a href="#" class="footer-link nav-item" data-page="tech">Tech Stack</a>
+                <a href="#" class="footer-link nav-item" data-page="projects">Projects</a>
+                <a href="#" class="footer-link nav-item" data-page="exercises">Exercises</a>
+                <a href="#" class="footer-link nav-item" data-page="gallery">Gallery</a>
+                <a href="#" class="footer-link nav-item" data-page="contact">Contact</a>
+            </nav>
+        </div>
+        <div>
+            <span class="footer-col-title">Contact</span>
+            <div class="footer-links-list">
+                <a href="mailto:piumithh@gmail.com" class="footer-link">📧 piumithh@gmail.com</a>
+                <a href="https://linkedin.com/in/hirusha-piyumith" class="footer-link" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                <a href="https://github.com/hirusha-piyumith" class="footer-link" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
+                <span class="footer-link" style="cursor:default;">📍 Sri Lanka 🇱🇰</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span class="footer-copy">© 2025 Hirusha Piyumith — All Rights Reserved</span>
+        <a href="#" class="footer-back-top nav-item" data-page="home" aria-label="Back to top">
+            ↑ Back to Top
+        </a>
+    </div>
+</footer>
+
+<!-- Cursor trail canvas -->
+<canvas id="cursorCanvas" aria-hidden="true"></canvas>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+/* ── 1. LOADER ──────────────────────────────────────────────────── */
+(function initLoader() {
+    const loader  = document.getElementById('loader');
+    const bar     = document.getElementById('loaderBar');
+    const pctText = document.getElementById('loaderPct');
+    let pct = 0;
+
+    const tick = setInterval(() => {
+        pct++;
+        bar.style.width = pct + '%';
+        pctText.textContent = pct + '%';
+        if (pct >= 100) {
+            clearInterval(tick);
+            setTimeout(() => loader.classList.add('fade-out'), 300);
+        }
+    }, 45);
+})();
+
+/* ── 2. SPA NAVIGATION ──────────────────────────────────────────── */
+const PAGE_MAP = {
+    'home':      'home-page',
+    'about':     'about-page',
+    'tech':      'tech-page',
+    'projects':  'projects-page',
+    'exercises': 'exercises-page',
+    'gallery':   'gallery-page',
+    'contact':   'contact-page',
+};
+
+const allPages   = document.querySelectorAll('.page-section');
+const allNavItems= document.querySelectorAll('[data-page]');
+const header     = document.getElementById('site-header');
+const hamburger  = document.getElementById('hamburger');
+const mobileNav  = document.getElementById('mobileNav');
+
+function showPage(pageKey) {
+    const targetId = PAGE_MAP[pageKey];
+    if (!targetId) return;
+
+    allPages.forEach(p => p.classList.remove('is-active', 'page-enter'));
+    const target = document.getElementById(targetId);
+    if (target) {
+        target.classList.add('is-active', 'page-enter');
+        setTimeout(() => target.classList.remove('page-enter'), 500);
+    }
+
+    allNavItems.forEach(el => {
+        el.classList.toggle('is-active', el.dataset.page === pageKey);
+    });
+
+    // Close mobile nav
+    mobileNav.classList.remove('is-open');
+    hamburger.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Re-trigger reveal animations for new page
+    requestAnimationFrame(() => checkRevealElements());
+}
+
+// Bind all [data-page] links
+allNavItems.forEach(el => {
+    el.addEventListener('click', e => {
+        e.preventDefault();
+        const pg = el.dataset.page;
+        if (pg) showPage(pg);
+    });
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+
+// Hamburger
+hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('is-open');
+    mobileNav.classList.toggle('is-open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileNav.setAttribute('aria-hidden', !isOpen);
+});
+
+/* ── 3. TYPEWRITER EFFECT ───────────────────────────────────────── */
+(function initTypewriter() {
+    const el    = document.getElementById('roleText');
+    const roles = [
+        'beautiful interfaces',
+        'performant web apps',
+        'clean, readable code',
+        'user-friendly designs',
+    ];
+    let roleIdx = 0, charIdx = 0, isDeleting = false;
+
+    function type() {
+        const currentRole = roles[roleIdx];
+        if (isDeleting) {
+            el.textContent = currentRole.substring(0, charIdx - 1);
+            charIdx--;
+        } else {
+            el.textContent = currentRole.substring(0, charIdx + 1);
+            charIdx++;
+        }
+
+        let delay = isDeleting ? 60 : 90;
+
+        if (!isDeleting && charIdx === currentRole.length) {
+            delay = 1800; // pause at end
+            isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+            isDeleting = false;
+            roleIdx = (roleIdx + 1) % roles.length;
+            delay = 400;
+        }
+
+        setTimeout(type, delay);
+    }
+    setTimeout(type, 1200);
+})();
+
+/* ── 4. INTERSECTION OBSERVER — reveal animations ───────────────── */
+function checkRevealElements() {
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // once only
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+}
+checkRevealElements();
+
+/* ── 5. CONTACT FORM ────────────────────────────────────────────── */
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const success = document.getElementById('formSuccess');
+    success.style.display = 'block';
+    this.reset();
+    setTimeout(() => { success.style.display = 'none'; }, 5000);
+});
+
+/* ── 6. CURSOR TRAIL ────────────────────────────────────────────── */
+(function initCursor() {
+    // Skip on touch / mobile devices
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    const canvas = document.getElementById('cursorCanvas');
+    const ctx    = canvas.getContext('2d');
+    let trail    = [];
+
+    function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    window.addEventListener('mousemove', e => {
+        trail.push({ x: e.clientX, y: e.clientY, life: 1 });
+        if (trail.length > 32) trail.shift();
+    }, { passive: true });
+
+    let rafId;
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        trail.forEach((p, i) => {
+            if (p.life <= 0) return;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2.5 * p.life, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(126, 4, 227, ${p.life * 0.45})`;
+            ctx.fill();
+            p.life -= 0.05;
+        });
+        trail = trail.filter(p => p.life > 0);
+        rafId = requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ── 7. TECH BAR ANIMATION ──────────────────────────────────────── */
+// Bars animate to width when the tech section becomes visible
+const techObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.tech-bar').forEach(bar => {
+                const target = bar.style.width;
+                bar.style.width = '0%';
+                requestAnimationFrame(() => {
+                    bar.style.width = target;
+                });
+            });
+            techObs.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.2 });
+
+const techPage = document.getElementById('tech-page');
+if (techPage) techObs.observe(techPage);
+</script>
+
+</body>
+</html>
