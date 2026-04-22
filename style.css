@@ -740,6 +740,7 @@ strong { color: var(--white); font-weight: 700; }
     overflow: hidden;
     box-shadow: 0 0 80px var(--accent-glow-lg), var(--shadow-lg);
     position: relative;
+    /* margin-bottom: 10px; */
     z-index: 1;
 }
 .hero-photo img {
