@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ── Primary Meta ── -->
+    
+    <!-- Meta & SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hirusha Piyumith — Frontend Developer & UI Designer based in Sri Lanka. Building modern, performant web experiences with HTML, CSS, JavaScript & Java.">
@@ -10,29 +11,33 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#080810">
 
-    <!-- ── Open Graph / Social ── -->
+    
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Hirusha Piyumith — Frontend Developer & UI Designer">
     <meta property="og:description" content="Building modern, performant web experiences from Sri Lanka.">
     <meta property="og:site_name" content="Hirusha Piyumith Portfolio">
 
-    <!-- ── Twitter Card ── -->
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hirusha Piyumith — Frontend Developer">
     <meta name="twitter:description" content="Crafting modern web experiences with clean code and thoughtful design.">
 
     <title>Hirusha Piyumith — Frontend Developer & UI Designer</title>
 
-    <!-- ── Preconnect for performance ── -->
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- ── Fonts — only what we use ── -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- ── Structured Data (JSON-LD) ── -->
+    
+    <!-- Structured data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -50,13 +55,11 @@
 </head>
 <body>
 
-<!-- ── AMBIENT BACKGROUND (one element, CSS-driven) ── -->
+<!-- Ambient background -->
 <div class="bg-canvas" aria-hidden="true"></div>
 <div class="noise-overlay" aria-hidden="true"></div>
 
-<!-- ══════════════════════════════════════════
-     LOADER
-══════════════════════════════════════════ -->
+<!-- Loader -->
 <div id="loader" role="status" aria-label="Loading portfolio">
     <div class="loader-logo">H<span>.</span>P<span>.</span></div>
     <div class="loader-bar-wrap">
@@ -65,17 +68,17 @@
     <p class="loader-pct" id="loaderPct" aria-live="polite">0%</p>
 </div>
 
-<!-- ══════════════════════════════════════════
-     HEADER / NAVIGATION
-══════════════════════════════════════════ -->
+<!-- Header -->
 <header id="site-header" role="banner">
     <div class="header-inner">
 
+        
         <!-- Logo -->
         <a href="#" class="site-logo" data-page="home" aria-label="Go to homepage">
             H<span>.</span>P<span>.</span>
         </a>
 
+        
         <!-- Desktop nav -->
         <nav class="site-nav" aria-label="Main navigation">
             <a href="#" class="nav-item is-active" data-page="home">Home</a>
@@ -87,12 +90,14 @@
             <a href="#" class="nav-item" data-page="contact">Contact</a>
         </nav>
 
+        
         <!-- Availability badge -->
         <div class="avail-badge" aria-label="Currently available for freelance work">
             <span class="avail-dot" aria-hidden="true"></span>
             Available for freelance
         </div>
 
+        
         <!-- Hamburger -->
         <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
             <span aria-hidden="true"></span>
@@ -102,7 +107,7 @@
     </div>
 </header>
 
-<!-- Mobile nav drawer -->
+<!-- Mobile nav -->
 <nav class="mobile-nav-drawer" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
     <a href="#" class="mobile-nav-item" data-page="home">Home</a>
     <a href="#" class="mobile-nav-item" data-page="about">About</a>
@@ -113,46 +118,48 @@
     <a href="#" class="mobile-nav-item" data-page="contact">Contact</a>
 </nav>
 
-<!-- ══════════════════════════════════════════
-     PAGE: HOME
-══════════════════════════════════════════ -->
 <main>
+<!-- Home -->
 <section id="home-page" class="page-section is-active" aria-label="Home" role="main">
-    <!-- Main content starts here -->
+    
     <div class="hero-wrap">
 
-        <!-- ── Left: Content ── -->
+        
         <div class="hero-content">
 
-<!-- Primary page header content -->
-        <!-- Status / open to work -->
+        
+            <!-- Status badge -->
             <div class="hero-status" role="note" aria-label="Currently available for work">
                 Available for Freelance &amp; Internship
             </div>
 
+            
             <!-- Headline -->
             <h1 class="hero-headline">
                 Hi, I'm<br>
                 <em>Hirusha Piyumith</em>
             </h1>
 
-            <!-- Typewriter role -->
+            
+            <!-- Typewriter -->
             <p class="hero-role" aria-label="Role: Frontend Developer & UI Designer">
-                <!-- Accessible role prefix -->
+                
                 <span class="role-prefix">I build</span>
                 <span class="role-text" id="roleText">beautiful interfaces</span>
             </p>
 
-            <!-- Role text and intro messaging -->
-            <!-- Value proposition — clear, specific -->
+            
+            
+            <!-- Intro -->
             <p class="hero-value-prop">
                 Frontend Developer & UI Designer crafting modern, responsive web experiences
                 using clean code and thoughtful design. Currently studying Software Engineering
                 at IJSE, Sri Lanka.
             </p>
 
-            <!-- Hero calls-to-action -->
-            <!-- Primary CTAs -->
+            
+            
+            <!-- CTAs -->
             <div class="hero-cta-group">
                 <a href="#" class="btn btn-primary" data-page="projects" aria-label="View my projects">
                     View My Work →
@@ -162,7 +169,8 @@
                 </a>
             </div>
 
-            <!-- Social icons -->
+            
+            <!-- Social links -->
             <div class="hero-socials" role="list" aria-label="Social media links">
                 <span class="hero-socials-label">Find me on</span>
                 <a href="https://github.com/hirusha-piyumith" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub" role="listitem">
@@ -183,6 +191,7 @@
                 </a>
             </div>
 
+            
             <!-- Stats -->
             <div class="hero-stats" aria-label="Key statistics">
                 <div class="hero-stat">
@@ -202,26 +211,29 @@
             </div>
         </div>
 
-        <!-- ── Right: Avatar ── -->
+        
+        <!-- Avatar / right side -->
         <div class="hero-visual" aria-hidden="true">
             <div class="hero-avatar-ring">
                 <div class="ring-outer"></div>
                 <div class="hero-photo">
                      <img src="assets/my.photo1.jpeg" alt="Portrait of Hirusha Piyumith">
-                    <!-- <span class="hero-photo-initials">HP</span> -->
+                    
                 </div>
             </div>
 
+            
             <!-- Floating tech badges -->
             <div class="floating-badge badge-a">⚡ JavaScript</div>
             <div class="floating-badge badge-b">☕ Java</div>
             <div class="floating-badge badge-c">🎨 CSS3</div>
         </div>
 
-        <!-- Skill strip marquee -->
+        
+        <!-- Scrolling skills strip -->
         <div class="hero-marquee" aria-label="Technologies I work with" role="marquee">
             <div class="marquee-track" aria-hidden="true">
-                <!-- Group 1 -->
+                
                 <span class="marquee-item"><span class="dot"></span><strong>HTML5</strong></span>
                 <span class="marquee-item"><span class="dot"></span><strong>CSS3</strong></span>
                 <span class="marquee-item"><span class="dot"></span><strong>JavaScript</strong></span>
@@ -231,7 +243,8 @@
                 <span class="marquee-item"><span class="dot"></span><strong>Scene Builder</strong></span>
                 <span class="marquee-item"><span class="dot"></span><strong>Figma</strong></span>
                 <span class="marquee-item"><span class="dot"></span><strong>GitHub</strong></span>
-                <!-- Group 2 (duplicate for loop) -->
+                <!-- Duplicated for seamless loop -->
+                
                 <span class="marquee-item"><span class="dot"></span><strong>HTML5</strong></span>
                 <span class="marquee-item"><span class="dot"></span><strong>CSS3</strong></span>
                 <span class="marquee-item"><span class="dot"></span><strong>JavaScript</strong></span>
@@ -244,12 +257,10 @@
             </div>
         </div>
 
-    </div><!-- /hero-wrap -->
+    </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PAGE: ABOUT
-══════════════════════════════════════════ -->
+<!-- About -->
 <section id="about-page" class="page-section" aria-label="About me">
     <div class="section-container">
         <header class="section-header reveal">
@@ -259,7 +270,8 @@
 
         <div class="about-grid">
 
-            <!-- Left: Identity card -->
+            
+            <!-- Identity card -->
             <aside class="about-identity-card reveal-left" aria-label="Profile overview">
                 <div class="about-photo-wrap">
                     <div class="about-photo-ring" aria-hidden="true"></div>
@@ -303,7 +315,8 @@
                 </div>
             </aside>
 
-            <!-- Right: Bio content -->
+            
+            <!-- Bio & timeline -->
             <div class="about-bio reveal-right">
                 <div class="about-chips tag-group" style="justify-content:flex-start;margin-bottom:1.5rem;">
                     <span class="tag">🇱🇰 Sri Lanka</span>
@@ -339,7 +352,7 @@
                     </div>
                 </div>
 
-                <!-- Education timeline -->
+                
                 <div class="timeline-section reveal">
                     <h3 class="timeline-label">Education</h3>
                     <div class="timeline">
@@ -375,9 +388,7 @@
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PAGE: TECH STACK
-══════════════════════════════════════════ -->
+<!-- Tech stack -->
 <section id="tech-page" class="page-section" aria-label="Technologies">
     <div class="section-container">
         <header class="section-header reveal">
@@ -386,7 +397,7 @@
         </header>
 
         <div class="tech-grid stagger" role="list" aria-label="Technology skills">
-            <!-- Each card: icon, name, proficiency bar -->
+            
             <div class="tech-card reveal" style="--i:0;" role="listitem">
                 <div class="tech-icon" aria-hidden="true">🌐</div>
                 <span class="tech-name">HTML5</span>
@@ -455,9 +466,7 @@
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PAGE: PROJECTS
-══════════════════════════════════════════ -->
+<!-- Projects -->
 <section id="projects-page" class="page-section" aria-label="Projects">
     <div class="section-container">
         <header class="section-header reveal">
@@ -467,7 +476,7 @@
 
         <div class="projects-grid">
 
-            <!-- Project 1 — POS System -->
+            
             <article class="project-card reveal" aria-label="portfolio project">
                 <div class="project-thumb">
                     <img src="assets/portfoliopic.jpeg" alt="Portfoliyo" class="project-img">
@@ -503,7 +512,7 @@
                 </div>
             </article>
 
-            <!-- Project 2 — Car Rental -->
+            
             <article class="project-card reveal" aria-label="Management System project">
                 <div class="project-thumb">
                      <img src="\assets\foundationp.png" alt="Foundation 360 Project" class="project-img">
@@ -538,7 +547,7 @@
                 </div>
             </article>
 
-            <!-- Project 3 — connect four game -->
+            
             <article class="project-card reveal" aria-label="Connect Four Game project" style="transition-delay:160ms;">
                 <div class="project-thumb">
                      <img src="assets\connectfourgame.jpg" alt="Connect Four Game" class="project-img">
@@ -577,9 +586,7 @@
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PAGE: EXERCISES
-══════════════════════════════════════════ -->
+<!-- Exercises -->
 <section id="exercises-page" class="page-section" aria-label="Learning exercises">
     <div class="section-container">
         <header class="section-header reveal">
@@ -765,9 +772,7 @@
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PAGE: GALLERY
-══════════════════════════════════════════ -->
+<!-- Gallery -->
 <section id="gallery-page" class="page-section" aria-label="Work gallery">
     <div class="section-container">
         <header class="section-header reveal">
@@ -796,7 +801,8 @@
                     <img src="assets/gallary/4.jpg" alt="Gallery photo 4" class="gallery-img">
                 </div>
             </div>
-            <!-- Placeholder slots — add your own image paths below -->
+            
+            <!-- Placeholder slots -->
             <div class="gallery-item reveal" role="listitem">
                 <div class="gallery-item-inner gallery-placeholder" aria-label="Add your image here">
                     <span class="gallery-placeholder-icon">📷</span>
@@ -813,9 +819,7 @@
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PAGE: CONTACT
-══════════════════════════════════════════ -->
+<!-- Contact -->
 <section id="contact-page" class="page-section" aria-label="Contact">
     <div class="section-container">
         <header class="section-header reveal">
@@ -823,7 +827,8 @@
             <h2 class="section-title">Let's Work<br>Together</h2>
         </header>
 
-        <!-- Trust signals -->
+        
+        <!-- Social proof -->
         <div class="trust-strip reveal" aria-label="Key stats" role="list">
             <div class="trust-item" role="listitem">
                 <span class="trust-num">3+</span>
@@ -841,7 +846,8 @@
 
         <div class="contact-wrapper">
 
-            <!-- Left: info -->
+            
+            <!-- Contact info -->
             <div class="reveal-left">
                 <p class="contact-intro">
                     Have a project in mind, a question, or just want to say hi?
@@ -880,7 +886,8 @@
                 </nav>
             </div>
 
-            <!-- Right: form -->
+            
+            <!-- Contact form -->
             <div class="reveal-right">
                 <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
                     <div class="form-row">
@@ -920,9 +927,7 @@
 </section>
 </main>
 
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
+<!-- Footer -->
 <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
         <div>
@@ -945,6 +950,7 @@
             </div>
         </div>
         <div>
+            <!-- Footer nav -->
             <span class="footer-col-title">Navigation</span>
             <nav class="footer-links-list" aria-label="Footer navigation">
                 <a href="#" class="footer-link nav-item" data-page="home">Home</a>
@@ -957,6 +963,7 @@
             </nav>
         </div>
         <div>
+            <!-- Footer contact -->
             <span class="footer-col-title">Contact</span>
             <div class="footer-links-list">
                 <a href="mailto:piumithh@gmail.com" class="footer-link">📧 piumithh@gmail.com</a>
@@ -977,106 +984,8 @@
 <!-- Cursor trail canvas -->
 <canvas id="cursorCanvas" aria-hidden="true"></canvas>
 
-<!-- ══════════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════════ -->
+<!-- Scripts -->
 <script defer src="script.js"></script>
 
 </body>
 </html>
-<!-- update 1 -->
-<!-- update 4 -->
-<!-- Commit #2 - 2026-04-02 08:45 -->
-
-<!-- Commit #5 - 2026-04-03 02:12 -->
-
-<!-- Commit #8 - 2026-04-04 00:28 -->
-
-<!-- Commit #11 - 2026-04-05 04:21 -->
-
-<!-- Commit #14 - 2026-04-06 16:07 -->
-
-<!-- Commit #17 - 2026-04-07 11:22 -->
-
-<!-- Commit #20 - 2026-04-08 06:42 -->
-
-
-<!-- Update 2 - 2026-04-01 -->
-
-<!-- Update 5 - 2026-04-02 -->
-
-<!-- Update 8 - 2026-04-03 -->
-
-<!-- Update 11 - 2026-04-04 -->
-
-<!-- Update 14 - 2026-04-05 -->
-
-<!-- Update 17 - 2026-04-06 -->
-
-<!-- Update 20 - 2026-04-07 -->
-
-<!-- Update 23 - 2026-04-08 -->
-
-<!-- Update 26 - 2026-04-09 -->
-
-<!-- Update 29 - 2026-04-09 -->
-
-<!-- Update 32 - 2026-04-10 -->
-
-<!-- Update 35 - 2026-04-11 -->
-
-<!-- Update 38 - 2026-04-12 -->
-
-<!-- Update 41 - 2026-04-13 -->
-
-<!-- Update 44 - 2026-04-14 -->
-
-<!-- Update 47 - 2026-04-15 -->
-
-<!-- Update 50 - 2026-04-16 -->
-
-<!-- Update 53 - 2026-04-17 -->
-
-<!-- Update 56 - 2026-04-18 -->
-
-<!-- Update 59 - 2026-04-19 -->
-
-<!-- Update 62 - 2026-04-20 -->
-
-<!-- Update 65 - 2026-04-20 -->
-
-<!-- Update 68 - 2026-04-21 -->
-
-<!-- Update 71 - 2026-04-22 -->
-
-<!-- Update 74 - 2026-04-23 -->
-
-<!-- Update 77 - 2026-04-24 -->
-
-<!-- Update 80 - 2026-04-25 -->
-
-<!-- Update 83 - 2026-04-26 -->
-
-<!-- Update 86 - 2026-04-27 -->
-
-<!-- Update 89 - 2026-04-28 -->
-
-<!-- Update 92 - 2026-04-29 -->
-
-<!-- Update 95 - 2026-04-30 -->
-
-<!-- Update 98 - 2026-05-01 -->
-
-<!-- Update 101 - 2026-05-01 -->
-
-<!-- Update 104 - 2026-05-02 -->
-
-<!-- Update 107 - 2026-05-03 -->
-
-<!-- Update 110 - 2026-05-04 -->
-
-<!-- Update 113 - 2026-05-05 -->
-
-<!-- Update 116 - 2026-05-06 -->
-
-<!-- Update 119 - 2026-05-07 -->

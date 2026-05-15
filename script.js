@@ -1,5 +1,6 @@
-/* Portfolio site behavior: loader, navigation, reveal animations, form handling, cursor trail, and progress bars */
+/* Main IIFE — keeps everything out of global scope */
 (function () {
+    /* Page ID map for navigation */
     const PAGE_MAP = {
         home: 'home-page',
         about: 'about-page',
@@ -10,6 +11,7 @@
         contact: 'contact-page',
     };
 
+    /* Typewriter phrases */
     const ROLE_TEXTS = [
         'beautiful interfaces',
         'performant web apps',
@@ -17,6 +19,7 @@
         'user-friendly designs',
     ];
 
+    /* Timing constants */
     const LOADER_INTERVAL_MS = 45;
     const LOADER_HIDE_DELAY_MS = 300;
     const TYPE_START_DELAY_MS = 1200;
@@ -24,6 +27,7 @@
     const CURSOR_TRAIL_MAX = 32;
     const CURSOR_DECAY = 0.05;
 
+    /* Loader — animates the progress bar on page load */
     function initLoader() {
         const loader = document.getElementById('loader');
         const bar = document.getElementById('loaderBar');
@@ -41,12 +45,14 @@
 
             if (pct >= 100) {
                 clearInterval(tick);
-                        // Keep the loader visible for a brief moment to avoid a flash
+                        
+                /* Brief delay before hiding to avoid a flash */
                 setTimeout(() => loader.classList.add('fade-out'), LOADER_HIDE_DELAY_MS);
             }
         }, LOADER_INTERVAL_MS);
     }
 
+    /* Navigation — handles page switching and mobile menu */
     function initNavigation() {
         const allPages = document.querySelectorAll('.page-section');
         const allNavItems = document.querySelectorAll('[data-page]');
@@ -54,8 +60,9 @@
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobileNav');
 
+        /* Switch active page section */
         function showPage(pageKey) {
-            // Switch visible page sections in the single-page portfolio UI
+            
             const targetId = PAGE_MAP[pageKey];
             if (!targetId) return;
 
@@ -108,6 +115,7 @@
         }
     }
 
+    /* Typewriter effect on the hero role text */
     function initTypewriter() {
         const roleText = document.getElementById('roleText');
         if (!roleText || ROLE_TEXTS.length === 0) return;
@@ -142,6 +150,7 @@
         window.setTimeout(typeLoop, TYPE_START_DELAY_MS);
     }
 
+    /* Scroll reveal — fades elements in as they enter the viewport */
     function initRevealObserver(reuseObserver = false) {
         const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
         if (revealElements.length === 0) return;
@@ -163,6 +172,7 @@
         revealElements.forEach((element) => initRevealObserver.observer.observe(element));
     }
 
+    /* Contact form — shows success message on submit */
     function initContactForm() {
         const contactForm = document.getElementById('contactForm');
         const successMessage = document.getElementById('formSuccess');
@@ -177,9 +187,10 @@
                 successMessage.style.display = 'none';
             }, SUCCESS_HIDE_DELAY_MS);
         });
-        // The success message is shown for a short, friendly duration
+        
     }
 
+    /* Cursor trail — canvas-based mouse particle effect */
     function initCursorTrail() {
         if (window.matchMedia('(hover: none)').matches) return;
 
@@ -191,11 +202,12 @@
 
         const trail = [];
 
+        /* Keep canvas synced to window size */
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-        // Use a lightweight canvas resize handler for better responsiveness
+        
 
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas, { passive: true });
@@ -207,6 +219,7 @@
             }
         }, { passive: true });
 
+        /* Draw and decay trail particles each frame */
         function drawTrail() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             trail.forEach((point) => {
@@ -223,6 +236,7 @@
         drawTrail();
     }
 
+    /* Animate skill bars when tech section scrolls into view */
     function initTechBarAnimation() {
         const techPage = document.getElementById('tech-page');
         if (!techPage) return;
@@ -245,6 +259,7 @@
         techObserver.observe(techPage);
     }
 
+    /* Boot everything up */
     function initApp() {
         initLoader();
         initNavigation();
@@ -255,100 +270,6 @@
         initTechBarAnimation();
     }
 
+    /* Wait for DOM before initializing */
     document.addEventListener('DOMContentLoaded', initApp);
 })();
-// update 3
-// Commit #3 - 2026-04-02 22:46
-
-// Commit #6 - 2026-04-03 11:55
-
-// Commit #9 - 2026-04-04 13:17
-
-// Commit #12 - 2026-04-05 08:52
-
-// Commit #15 - 2026-04-06 03:57
-
-// Commit #18 - 2026-04-07 22:52
-
-// Commit #21 - 2026-04-08 16:12
-
-
-// Update 3 - 2026-04-01
-
-// Update 6 - 2026-04-02
-
-// Update 9 - 2026-04-03
-
-// Update 12 - 2026-04-04
-
-// Update 15 - 2026-04-05
-
-// Update 18 - 2026-04-06
-
-// Update 21 - 2026-04-07
-
-// Update 24 - 2026-04-08
-
-// Update 27 - 2026-04-09
-
-// Update 30 - 2026-04-10
-
-// Update 33 - 2026-04-11
-
-// Update 36 - 2026-04-12
-
-// Update 39 - 2026-04-12
-
-// Update 42 - 2026-04-13
-
-// Update 45 - 2026-04-14
-
-// Update 48 - 2026-04-15
-
-// Update 51 - 2026-04-16
-
-// Update 54 - 2026-04-17
-
-// Update 57 - 2026-04-18
-
-// Update 60 - 2026-04-19
-
-// Update 63 - 2026-04-20
-
-// Update 66 - 2026-04-21
-
-// Update 69 - 2026-04-22
-
-// Update 72 - 2026-04-23
-
-// Update 75 - 2026-04-23
-
-// Update 78 - 2026-04-24
-
-// Update 81 - 2026-04-25
-
-// Update 84 - 2026-04-26
-
-// Update 87 - 2026-04-27
-
-// Update 90 - 2026-04-28
-
-// Update 93 - 2026-04-29
-
-// Update 96 - 2026-04-30
-
-// Update 99 - 2026-05-01
-
-// Update 102 - 2026-05-02
-
-// Update 105 - 2026-05-03
-
-// Update 108 - 2026-05-04
-
-// Update 111 - 2026-05-04
-
-// Update 114 - 2026-05-05
-
-// Update 117 - 2026-05-06
-
-// Update 120 - 2026-05-07
