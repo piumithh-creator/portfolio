@@ -1,275 +1,266 @@
-/* Main IIFE — keeps everything out of global scope */
 (function () {
-    /* Page ID map for navigation */
-    const PAGE_MAP = {
+
+    var pages = {
         home: 'home-page',
         about: 'about-page',
         tech: 'tech-page',
         projects: 'projects-page',
         exercises: 'exercises-page',
         gallery: 'gallery-page',
-        contact: 'contact-page',
+        contact: 'contact-page'
     };
 
-    /* Typewriter phrases */
-    const ROLE_TEXTS = [
+    var roleTexts = [
         'beautiful interfaces',
         'performant web apps',
         'clean, readable code',
-        'user-friendly designs',
+        'user-friendly designs'
     ];
 
-    /* Timing constants */
-    const LOADER_INTERVAL_MS = 45;
-    const LOADER_HIDE_DELAY_MS = 300;
-    const TYPE_START_DELAY_MS = 1200;
-    const SUCCESS_HIDE_DELAY_MS = 5000;
-    const CURSOR_TRAIL_MAX = 32;
-    const CURSOR_DECAY = 0.05;
+    var LOADER_SPEED = 45;
+    var TYPE_DELAY = 1200;
+    var SUCCESS_TIMEOUT = 5000;
+    var MAX_TRAIL = 32;
+    var TRAIL_DECAY = 0.05;
 
-    /* Loader — animates the progress bar on page load */
+
     function initLoader() {
-        const loader = document.getElementById('loader');
-        const bar = document.getElementById('loaderBar');
-        const pctText = document.getElementById('loaderPct');
+        var loader = document.getElementById('loader');
+        var bar = document.getElementById('loaderBar');
+        var pct = document.getElementById('loaderPct');
 
-        if (!loader || !bar || !pctText) {
-            return;
-        }
+        if (!loader || !bar || !pct) return;
 
-        let pct = 0;
-        const tick = setInterval(() => {
-            pct += 1;
-            bar.style.width = `${pct}%`;
-            pctText.textContent = `${pct}%`;
+        var progress = 0;
+        var interval = setInterval(function() {
+            progress++;
+            bar.style.width = progress + '%';
+            pct.textContent = progress + '%';
 
-            if (pct >= 100) {
-                clearInterval(tick);
-                        
-                /* Brief delay before hiding to avoid a flash */
-                setTimeout(() => loader.classList.add('fade-out'), LOADER_HIDE_DELAY_MS);
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(function() {
+                    loader.classList.add('fade-out');
+                }, 300);
             }
-        }, LOADER_INTERVAL_MS);
+        }, LOADER_SPEED);
     }
 
-    /* Navigation — handles page switching and mobile menu */
-    function initNavigation() {
-        const allPages = document.querySelectorAll('.page-section');
-        const allNavItems = document.querySelectorAll('[data-page]');
-        const header = document.getElementById('site-header');
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobileNav');
 
-        /* Switch active page section */
-        function showPage(pageKey) {
-            
-            const targetId = PAGE_MAP[pageKey];
-            if (!targetId) return;
+    function initNav() {
+        var allSections = document.querySelectorAll('.page-section');
+        var navLinks = document.querySelectorAll('[data-page]');
+        var header = document.getElementById('site-header');
+        var hamburger = document.getElementById('hamburger');
+        var drawer = document.getElementById('mobileNav');
 
-            allPages.forEach((page) => page.classList.remove('is-active', 'page-enter'));
+        function goToPage(key) {
+            if (!pages[key]) return;
 
-            const target = document.getElementById(targetId);
-            if (target) {
-                target.classList.add('is-active', 'page-enter');
-                window.setTimeout(() => target.classList.remove('page-enter'), 500);
-            }
-
-            allNavItems.forEach((link) => {
-                link.classList.toggle('is-active', link.dataset.page === pageKey);
+            allSections.forEach(function(s) {
+                s.classList.remove('is-active', 'page-enter');
             });
 
-            if (mobileNav && hamburger) {
-                mobileNav.classList.remove('is-open');
+            var target = document.getElementById(pages[key]);
+            if (target) {
+                target.classList.add('is-active', 'page-enter');
+                setTimeout(function() {
+                    target.classList.remove('page-enter');
+                }, 500);
+            }
+
+            navLinks.forEach(function(link) {
+                link.classList.toggle('is-active', link.dataset.page === key);
+            });
+
+            if (drawer && hamburger) {
+                drawer.classList.remove('is-open');
                 hamburger.classList.remove('is-open');
                 hamburger.setAttribute('aria-expanded', 'false');
-                mobileNav.setAttribute('aria-hidden', 'true');
+                drawer.setAttribute('aria-hidden', 'true');
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            window.requestAnimationFrame(() => initRevealObserver(true));
+            requestAnimationFrame(function() {
+                initReveal(true);
+            });
         }
 
-        allNavItems.forEach((item) => {
-            item.addEventListener('click', (event) => {
-                event.preventDefault();
-                const pageKey = item.dataset.page;
-                if (pageKey) {
-                    showPage(pageKey);
-                }
+        navLinks.forEach(function(item) {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                var key = item.dataset.page;
+                if (key) goToPage(key);
             });
         });
 
         if (header) {
-            window.addEventListener('scroll', () => {
+            window.addEventListener('scroll', function() {
                 header.classList.toggle('scrolled', window.scrollY > 10);
             }, { passive: true });
         }
 
-        if (hamburger && mobileNav) {
-            hamburger.addEventListener('click', () => {
-                const isOpen = hamburger.classList.toggle('is-open');
-                mobileNav.classList.toggle('is-open', isOpen);
-                hamburger.setAttribute('aria-expanded', `${isOpen}`);
-                mobileNav.setAttribute('aria-hidden', `${!isOpen}`);
+        if (hamburger && drawer) {
+            hamburger.addEventListener('click', function() {
+                var open = hamburger.classList.toggle('is-open');
+                drawer.classList.toggle('is-open', open);
+                hamburger.setAttribute('aria-expanded', String(open));
+                drawer.setAttribute('aria-hidden', String(!open));
             });
         }
     }
 
-    /* Typewriter effect on the hero role text */
+
     function initTypewriter() {
-        const roleText = document.getElementById('roleText');
-        if (!roleText || ROLE_TEXTS.length === 0) return;
+        var el = document.getElementById('roleText');
+        if (!el || !roleTexts.length) return;
 
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        var idx = 0;
+        var pos = 0;
+        var deleting = false;
 
-        function typeLoop() {
-            const currentText = ROLE_TEXTS[roleIndex];
-            if (isDeleting) {
-                charIndex = Math.max(charIndex - 1, 0);
-                roleText.textContent = currentText.substring(0, charIndex);
+        function tick() {
+            var str = roleTexts[idx];
+
+            if (deleting) {
+                pos = Math.max(pos - 1, 0);
             } else {
-                charIndex = Math.min(charIndex + 1, currentText.length);
-                roleText.textContent = currentText.substring(0, charIndex);
+                pos = Math.min(pos + 1, str.length);
             }
 
-            let delay = isDeleting ? 60 : 90;
-            if (!isDeleting && charIndex === currentText.length) {
-                delay = 1800;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % ROLE_TEXTS.length;
-                delay = 400;
+            el.textContent = str.substring(0, pos);
+
+            var wait = deleting ? 60 : 90;
+
+            if (!deleting && pos === str.length) {
+                wait = 1800;
+                deleting = true;
+            } else if (deleting && pos === 0) {
+                deleting = false;
+                idx = (idx + 1) % roleTexts.length;
+                wait = 400;
             }
 
-            window.setTimeout(typeLoop, delay);
+            setTimeout(tick, wait);
         }
 
-        window.setTimeout(typeLoop, TYPE_START_DELAY_MS);
+        setTimeout(tick, TYPE_DELAY);
     }
 
-    /* Scroll reveal — fades elements in as they enter the viewport */
-    function initRevealObserver(reuseObserver = false) {
-        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-        if (revealElements.length === 0) return;
 
-        if (reuseObserver && initRevealObserver.observer) {
-            revealElements.forEach((element) => initRevealObserver.observer.observe(element));
+    function initReveal(reuse) {
+        var els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        if (!els.length) return;
+
+        if (reuse && initReveal._obs) {
+            els.forEach(function(el) { initReveal._obs.observe(el); });
             return;
         }
 
-        initRevealObserver.observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+        initReveal._obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    initRevealObserver.observer.unobserve(entry.target);
+                    initReveal._obs.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-        revealElements.forEach((element) => initRevealObserver.observer.observe(element));
+        els.forEach(function(el) { initReveal._obs.observe(el); });
     }
 
-    /* Contact form — shows success message on submit */
+
     function initContactForm() {
-        const contactForm = document.getElementById('contactForm');
-        const successMessage = document.getElementById('formSuccess');
+        var form = document.getElementById('contactForm');
+        var msg = document.getElementById('formSuccess');
 
-        if (!contactForm || !successMessage) return;
+        if (!form || !msg) return;
 
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            successMessage.style.display = 'block';
-            contactForm.reset();
-            window.setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, SUCCESS_HIDE_DELAY_MS);
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            msg.style.display = 'block';
+            form.reset();
+            setTimeout(function() {
+                msg.style.display = 'none';
+            }, SUCCESS_TIMEOUT);
         });
-        
     }
 
-    /* Cursor trail — canvas-based mouse particle effect */
+
     function initCursorTrail() {
         if (window.matchMedia('(hover: none)').matches) return;
 
-        const canvas = document.getElementById('cursorCanvas');
+        var canvas = document.getElementById('cursorCanvas');
         if (!canvas) return;
 
-        const ctx = canvas.getContext('2d');
+        var ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const trail = [];
+        var trail = [];
 
-        /* Keep canvas synced to window size */
-        function resizeCanvas() {
+        function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-        
 
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas, { passive: true });
+        resize();
+        window.addEventListener('resize', resize, { passive: true });
 
-        window.addEventListener('mousemove', (event) => {
-            trail.push({ x: event.clientX, y: event.clientY, life: 1 });
-            if (trail.length > CURSOR_TRAIL_MAX) {
-                trail.shift();
-            }
+        window.addEventListener('mousemove', function(e) {
+            trail.push({ x: e.clientX, y: e.clientY, life: 1 });
+            if (trail.length > MAX_TRAIL) trail.shift();
         }, { passive: true });
 
-        /* Draw and decay trail particles each frame */
-        function drawTrail() {
+        function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            trail.forEach((point) => {
-                if (point.life <= 0) return;
+            trail.forEach(function(p) {
+                if (p.life <= 0) return;
                 ctx.beginPath();
-                ctx.arc(point.x, point.y, 2.5 * point.life, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(126, 4, 227, ${point.life * 0.45})`;
+                ctx.arc(p.x, p.y, 2.5 * p.life, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(126, 4, 227, ' + (p.life * 0.45) + ')';
                 ctx.fill();
-                point.life -= CURSOR_DECAY;
+                p.life -= TRAIL_DECAY;
             });
-            window.requestAnimationFrame(drawTrail);
+            requestAnimationFrame(draw);
         }
 
-        drawTrail();
+        draw();
     }
 
-    /* Animate skill bars when tech section scrolls into view */
-    function initTechBarAnimation() {
-        const techPage = document.getElementById('tech-page');
+
+    function initTechBars() {
+        var techPage = document.getElementById('tech-page');
         if (!techPage) return;
 
-        const techObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (!entry.isIntersecting) return;
-                const bars = entry.target.querySelectorAll('.tech-bar');
-                bars.forEach((bar) => {
-                    const targetWidth = bar.style.width || '';
+                var bars = entry.target.querySelectorAll('.tech-bar');
+                bars.forEach(function(bar) {
+                    var target = bar.style.width;
                     bar.style.width = '0%';
-                    window.requestAnimationFrame(() => {
-                        bar.style.width = targetWidth;
+                    requestAnimationFrame(function() {
+                        bar.style.width = target;
                     });
                 });
-                techObserver.unobserve(entry.target);
+                obs.unobserve(entry.target);
             });
         }, { threshold: 0.2 });
 
-        techObserver.observe(techPage);
+        obs.observe(techPage);
     }
 
-    /* Boot everything up */
-    function initApp() {
+
+    function boot() {
         initLoader();
-        initNavigation();
+        initNav();
         initTypewriter();
-        initRevealObserver();
+        initReveal();
         initContactForm();
         initCursorTrail();
-        initTechBarAnimation();
+        initTechBars();
     }
 
-    /* Wait for DOM before initializing */
-    document.addEventListener('DOMContentLoaded', initApp);
+    document.addEventListener('DOMContentLoaded', boot);
+
 })();

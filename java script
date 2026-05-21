@@ -1,0 +1,54 @@
+"use strict";
+
+/* LOADER */
+window.addEventListener("load", () => {
+    document.getElementById("loader").style.display = "none";
+});
+
+/* SPA NAVIGATION */
+const pages = document.querySelectorAll(".page");
+const links = document.querySelectorAll("[data-page]");
+
+function showPage(page) {
+    pages.forEach(p => p.classList.remove("active"));
+    document.getElementById(page + "-page").classList.add("active");
+}
+
+links.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        showPage(link.dataset.page);
+    });
+});
+
+/* TYPEWRITER */
+const roles = ["Frontend Developer", "UI Designer", "Web Developer"];
+const roleEl = document.getElementById("roleText");
+
+let i = 0, j = 0, deleting = false;
+
+function type() {
+    const text = roles[i];
+
+    roleEl.textContent = deleting
+        ? text.substring(0, j--)
+        : text.substring(0, j++);
+
+    if (!deleting && j === text.length) {
+        deleting = true;
+        setTimeout(type, 1500);
+    } else if (deleting && j === 0) {
+        deleting = false;
+        i = (i + 1) % roles.length;
+        setTimeout(type, 300);
+    } else {
+        setTimeout(type, deleting ? 50 : 80);
+    }
+}
+type();
+
+/* FORM */
+document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+    alert("Form connected soon!");
+});
